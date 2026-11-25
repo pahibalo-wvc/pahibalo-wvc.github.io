@@ -476,6 +476,11 @@ env = Environment(loader=FileSystemLoader(HERE / "templates"), autoescape=select
                   trim_blocks=True, lstrip_blocks=True)
 env.globals.update(settings=settings, nav=nav, nav_top=nav_top, nav_pinned=nav_pinned,sheet_links=sheet_links, footer_links=footer_links, area_css=Markup(area_css), HUBS=HUBS,
                    GROUPS=GROUPS, AREAS=AREAS, nice_date=nice_date, connection=connection, area_by_tag=area_by_tag)
+# A short fingerprint of the stylesheet and script, added to their links (site.css?v=...) so browsers
+# fetch the new files after every change instead of showing an old saved copy.
+import hashlib
+env.globals["asset_v"] = hashlib.sha1(b"".join((HERE / "assets" / p).read_bytes()
+                                              for p in ("css/site.css", "js/site.js"))).hexdigest()[:10]
 env.filters["gaps"] = lambda s: Markup(UNKNOWN.sub(gap, str(escape(s or ""))))  # "(unknown)" -> grey pill
 
 
