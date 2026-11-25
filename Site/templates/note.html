@@ -25,14 +25,15 @@
 
   {% if has_template %}
   {# The template link always comes before the senior tip (D43). Templates live on Google Drive and open in a new tab (D58). #}
-  {% if template_link %}
-  <a class="coupon" href="{{ template_link }}"><span class="coupon-ic">{{ icon("scissors") }}</span><span><small class="mono">Template</small><b>{{ "Open the template" }}</b><small>{{ "Google Drive. Sign in with your school account" if template_school else ("Google Drive, opens in a new tab" if template_drive else "Opens in a new tab") }}</small></span>{{ icon("link", "ic go") }}</a>
+  {% set where = "Google Drive. Sign in with your school account" if template_school else ("Google Drive, opens in a new tab" if template_drive else "Opens in a new tab") %}
+  {% if template_chips %}
+  {# Forms with several files (like the four LEAP forms): one link chip per file, and no single template button. #}
+  <nav class="chips tpl-chips" aria-label="Templates">{% for label, url in template_chips %}<a href="{{ url }}">{{ icon("scissors") }}{{ label }}</a>{% endfor %}</nav>
+  <p class="tpl-note">{{ where }}.</p>
+  {% elif template_link %}
+  <a class="tpl-link" href="{{ template_link }}">{{ icon("scissors") }}<span><b>Open the template</b><small>{{ where }}</small></span>{{ icon("link") }}</a>
   {% else %}
   <div class="coupon coupon-missing"><span class="coupon-ic">{{ icon("scissors") }}</span><span><small class="mono">Template</small><b>Not online yet</b><small>{{ template_note }}</small></span></div>
-  {% endif %}
-  {# Forms with several files (like the four LEAP forms) list each one as a chip under the template. #}
-  {% if template_chips %}
-  <nav class="chips tpl-chips" aria-label="Each form">{% for label, url in template_chips %}<a href="{{ url }}">{{ icon("scissors") }}{{ label }}</a>{% endfor %}</nav>
   {% endif %}
   {% endif %}
 

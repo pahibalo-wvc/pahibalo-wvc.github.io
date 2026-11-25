@@ -5,7 +5,6 @@
 {% block body_class %}pg-hub hub-{{ h.tag }}{% endblock %}
 {% block main %}
 {% call page_hero(root, h.photo, "index.html", "Home", h.name, h.icon, h.tag, h.summary, style="notice") %}
-<p class="hub-count"><span class="mono">{{ items|length }} {{ h.noun }}</span></p>
 <a class="hub-search" href="{{ root }}search.html?area={{ h.key }}">{{ icon("search") }}<span>Search in {{ h.name }}</span></a>
 {% endcall %}
 <div class="wrap page hub">
@@ -15,6 +14,11 @@
     <button type="button" data-g="" aria-pressed="true">All years</button>
     {% for g in groups %}<button type="button" class="gg-{{ g.key }}" data-g="{{ g.key }}" aria-pressed="false">{{ g.name }} <small>G{{ g.grades[0][1:] }}-{{ g.grades[-1][1:] }}</small></button>{% endfor %}
   </div>
+  {% endif %}
+  {# Pinned links from the hub note's "pins" property: "Label|https://...|small note". #}
+  {% set pins = (h.note.get("pins") if h.note else None) or [] %}
+  {% if pins %}
+  <div class="hub-pins">{% for p in pins %}{% set bits = p.split("|") %}<a class="tpl-link" href="{{ bits[1] }}">{{ icon("scissors") }}<span><b>{{ bits[0] }}</b>{% if bits|length > 2 %}<small>{{ bits[2] }}</small>{% endif %}</span>{{ icon("link") }}</a>{% endfor %}</div>
   {% endif %}
   {% if layout_kind == "places" %}
   <div class="places">

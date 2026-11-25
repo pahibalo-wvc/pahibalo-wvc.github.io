@@ -4,7 +4,8 @@ type: "hub"
 tags: ["pahibalo"]
 summary: "Every form and document, in one Documents Library."
 date: "2026-11-23"
-last_updated: "2026-11-23"
+last_updated: "2026-11-25"
+pins: ["Make a blank letter or form|https://drive.google.com/file/d/1xiVeIHFecJvMkBfzF_NeQthIWByi8-RI/view|Official PSHS header and footer. Google Drive, sign in with your school account"]
 ---
 
 # Forms
