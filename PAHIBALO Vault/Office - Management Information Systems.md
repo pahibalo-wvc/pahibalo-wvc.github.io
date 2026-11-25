@@ -5,12 +5,12 @@ icon: "mis"
 tags: []
 grade: []
 area: ["academics"]
-summary: "The school's IT office (MIS). It looks after the school's computers, network and online systems. What students usually go here for is (unknown)."
+summary: "The school's IT office (MIS). It looks after the school's computers, network and online systems. Students go here to replace a school ID."
 location: "Second floor of the old academic building. Turn left from the Administration Building"
-last_updated: "2026-11-24"
-source: "PAHIBALO team (2026-11-23)"
+last_updated: "2026-11-25"
+source: "PAHIBALO team (2026-11-23; ID replacement 2026-11-25)"
 status: "needs-check"
-aliases: ["MIS", "IT office", "information systems"]
+aliases: ["MIS", "IT office", "information systems", "ID replacement"]
 owner_office: "Office - Management Information Systems"
 header_photo: "mis-office"
 photos:
@@ -23,10 +23,12 @@ date: "2026-11-23"
 Back to [[Home]]
 
 > [!summary] In short
-> The school's IT office (MIS). It looks after the school's computers, network and online systems. What students usually go here for is (unknown).
+> The school's IT office (MIS). It looks after the school's computers, network and online systems. Students go here to replace a school ID.
 
 ## What it handles
-The MIS looks after the school's computers, network and online systems, like the ones on [[Kit - School Online Systems]]. What students usually go here for is (unknown).
+The MIS looks after the school's computers, network and online systems, like the ones on [[Kit - School Online Systems]].
+
+It also makes new school IDs. Get the [[Form - ID Replacement Request]] from the Registrar, then file it here. It costs P75, and a lost ID also needs an affidavit of loss.
 
 %% 2026-11-24: "computers, network and online systems" is inferred from what an MIS office usually does (PAHIBALO team asked to infer short descriptions). %%
 
@@ -34,7 +36,7 @@ The MIS looks after the school's computers, network and online systems, like the
 The second floor of the old academic building. From the Administration Building, turn left.
 
 ## Related
-[[Kit - School Online Systems]] · [[Hub - Offices]]
+[[Form - ID Replacement Request]] · [[Kit - School Online Systems]] · [[Hub - Offices]]
 
 ---
 Last updated: 2026-11-23. Details can change, so confirm with the office if unsure. Report an error: (form link unknown).
