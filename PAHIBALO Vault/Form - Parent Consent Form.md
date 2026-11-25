@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["PCF", "consent form", "parent consent", "waiver", "off campus activity", "after class hours", "out of school activity", "field trip", "DSA-07"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-23"
-template_link: "https://drive.google.com/file/d/1jbQTFWoSj6rJ4-olbKD02WMhsNS8aUyD/view"
+template_link: "https://drive.google.com/file/d/1JcpmJHicK4U_0h8Hzp5cCtPBdaPZFzoJ/view"
 template_status: "school-account"
 form_code: "PSHS-00-F-DSA-07"
 needs_signature_from: "Parent or guardian"
@@ -46,9 +46,6 @@ Your parent or guardian.
 
 ## Where to submit
 The organizer or teacher-adviser named on the form.
-
-## Other copies
-Another copy is on the PAHIBALO Drive: [Excel copy](https://drive.google.com/file/d/1JcpmJHicK4U_0h8Hzp5cCtPBdaPZFzoJ/view).
 
 ## Template
 The blank PCF is on the SAU Forms folder on Google Drive. Organizers fill in the activity details before they hand it out.

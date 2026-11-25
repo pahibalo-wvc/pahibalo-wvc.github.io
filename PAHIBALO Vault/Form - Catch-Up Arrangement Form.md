@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["catch up form", "catch-up plan", "make up missed classes", "missed requirements"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/1H7IYT26PbOIvIBVh9qpT__ILpSxs_H3g/view"
+template_link: "https://drive.google.com/file/d/1NMefKcBwwwT2FikIllQBlsGTL9SOjshI/view"
 template_status: "school-account"
 needs_signature_from: "Subject teachers or event organizers, your coach or adviser, you, then the SAU Head"
 submit_to: "SAU Head"
@@ -43,11 +43,8 @@ Your subject teachers or the event organizers, your coach or adviser, you, and t
 ## Where to submit
 The [[Office - Student Affairs Unit]].
 
-## Other copies
-Another copy is on the PAHIBALO Drive: [PDF copy](https://drive.google.com/file/d/1NMefKcBwwwT2FikIllQBlsGTL9SOjshI/view).
-
 ## Template
-On the SAU Forms folder on Google Drive, as a PDF and a Word file ([Word copy](https://drive.google.com/file/d/12mG2XbgfFN0snJW6v6fXIMcdSQT8dxL0/view)).
+On the PAHIBALO Drive as a PDF.
 
 ## Related
 [[Form - Student Representation Form]] · [[Form - Student Enrichment Application Form]] · [[Guide - Representing the School]] · [[Hub - Competitions]]

@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["risk management plan", "safety plan", "project management plan", "risk plan", "PRMP"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/1fSP1FCFcjjFQ6pltQa8VJTgm_zQ2LJxU/view"
+template_link: "https://drive.google.com/file/d/1HjlNWxNj4klOw4rQEfNM-LqiGNfpM8gD/view"
 template_status: "school-account"
 needs_signature_from: "The proponents, then the teacher-adviser or supervisor"
 submit_to: "(unknown)"
@@ -42,9 +42,6 @@ The proponents, then the teacher-adviser or supervisor.
 
 ## Where to submit
 (unknown). Most likely the [[Office - Student Affairs Unit]] with your APF.
-
-## Other copies
-Another copy is on the PAHIBALO Drive: [updated PDF](https://drive.google.com/file/d/1HjlNWxNj4klOw4rQEfNM-LqiGNfpM8gD/view).
 
 ## Template
 On the SAU Forms folder on Google Drive (Word file).

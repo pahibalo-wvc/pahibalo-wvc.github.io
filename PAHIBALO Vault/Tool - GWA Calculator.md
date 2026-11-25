@@ -4,6 +4,7 @@ type: "tool"
 tile_text: "work out your GWA"
 publish: "tools/gwa-calculator.html"
 layout: "gwa"
+unavailable_sets: ["G7"]
 tags: []
 grade: []
 area: ["academics"]

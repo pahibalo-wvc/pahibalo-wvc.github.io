@@ -12,7 +12,6 @@ aliases: ["packing list"]
 owner_office: "(unknown)"
 date: "2026-11-23"
 photos:
-  - "tour-dorm-room|A dorm room with a single bed with a bare mattress, a small cabinet and curtains|A dorm room. The bed comes with a mattress, so bring your own sheets and pillow (2021 virtual campus tour)|dorm"
   - "tour-dorm-kitchen|The dorm kitchen with a counter, a refrigerator and a dining table|The shared dorm kitchen (2021 virtual campus tour)|dorm"
 ---
 

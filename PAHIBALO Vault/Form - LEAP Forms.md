@@ -14,6 +14,7 @@ owner_office: "(unknown)"
 date: "2026-11-23"
 template_link: "https://drive.google.com/file/d/1wwy2O-zyNoX2WhF8Q4Csyb7k1cFh1im4/view"
 template_status: "school-account"
+template_chips: ["Form 1, Personal Information Sheet|https://drive.google.com/file/d/1wwy2O-zyNoX2WhF8Q4Csyb7k1cFh1im4/view", "Form 2, Program Proposal|https://drive.google.com/file/d/1diWl-8b65yMgEcz-bZnJ515ePK5hIhfb/view", "Form 3, Activity Plan|https://drive.google.com/file/d/18m2YiTyT4JvjlRkiOBpeehzqN-2Y3IWu/view", "Form 4, Program Report|https://drive.google.com/file/d/1rz2_Pdj4uSjvMzksmsQtT7Xr0KS7OTPH/view"]
 form_code: "PSHS-00-F-DSA-11 to 14"
 needs_signature_from: "You, your parent, the adult supervisor and your LEAP adviser"
 submit_to: "Your LEAP adviser"
@@ -52,9 +53,6 @@ You, your parent or guardian (Form 3), the adult supervisor (Form 3), and your L
 
 ## Where to submit
 Your LEAP adviser.
-
-## Each form
-Each LEAP form has its own file on the PAHIBALO Drive: [Form 1, Personal Information Sheet](https://drive.google.com/file/d/1wwy2O-zyNoX2WhF8Q4Csyb7k1cFh1im4/view), [Form 2, Program Proposal](https://drive.google.com/file/d/1diWl-8b65yMgEcz-bZnJ515ePK5hIhfb/view), [Form 3, Activity Plan](https://drive.google.com/file/d/18m2YiTyT4JvjlRkiOBpeehzqN-2Y3IWu/view), [Form 4, Program Report](https://drive.google.com/file/d/1rz2_Pdj4uSjvMzksmsQtT7Xr0KS7OTPH/view).
 
 ## Template
 The blank form is on Google Drive.

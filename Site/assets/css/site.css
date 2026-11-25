@@ -393,6 +393,8 @@ a.snap:hover{transform:rotate(0) scale(1.03);z-index:2}
 .coupon{background:var(--grain),var(--paper-2);border:2.5px dashed var(--k);outline:4px solid var(--paper-2)}
 .coupon small{display:block;font-size:14.5px;color:var(--muted)}
 .coupon small.mono{font-size:11.5px;color:var(--red)}
+.tpl-chips{margin:-10px 0 22px}
+.tpl-chips a{gap:6px;text-decoration:none}
 .coupon-ic{display:grid;place-items:center;flex:none;width:42px;height:42px;color:var(--ink);transform:rotate(-90deg)}
 a.coupon:hover{background:var(--hl);color:#17213A}
 a.coupon:hover small{color:#2E3647}
@@ -526,6 +528,8 @@ th{color:var(--ink);font:700 13px var(--mono);text-transform:uppercase;letter-sp
 .seg span{display:inline-flex;align-items:center;justify-content:center;min-width:58px;min-height:46px;padding:0 12px;border:1.5px solid var(--edge);background:var(--paper);font:650 18px var(--head);cursor:pointer}
 .seg input:checked+span{background:var(--hl);color:#17213A;box-shadow:var(--shadow);transform:rotate(-2deg)}
 .seg input:focus-visible+span{outline:3px solid var(--blue);outline-offset:3px}
+.seg .off span{border-style:dashed;background:transparent;color:var(--muted);text-decoration:line-through;cursor:not-allowed}
+.seg-off{margin:6px 0 0}
 /* GWA: one compact screen. Header, grade chips, subject grid and result all fit with little scrolling. */
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .gwa{padding-top:14px;padding-bottom:20px}

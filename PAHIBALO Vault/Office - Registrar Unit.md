@@ -30,7 +30,7 @@ Back to [[Home]]
 Enrollment, entrance test info and results, recording and ranking of grades, stipend payroll, IDs, report cards and transcripts. Also gives admission slips.
 
 ## Request documents
-Use the Student Record Request form (PSHS-00-F-REG-12) to get your Form 137, Form 138, diploma or a certification. Scholars and alumni use it, for example for college applications or a school transfer, and an authorized representative can request for you.
+Use the [Student Record Request form](https://drive.google.com/file/d/19qx6lqtmde1TWhZtRH1uBY1MuTc7s3Xq/view) (PSHS-00-F-REG-12, on the PAHIBALO Drive; sign in with your school account) to get your Form 137, Form 138, diploma or a certification. Scholars and alumni use it, for example for college applications or a school transfer, and an authorized representative can request for you.
 
 Form 137 (transcript of records) and the diploma need clearance first. Form 138 (report card) and certifications do not.
 
@@ -44,9 +44,9 @@ For any other document, tick "Others" and write it in.
 
 The Registrar approves or disapproves each request and writes the reason.
 
-%% Moved here from Forms on PAHIBALO team's request (D57): "Request documents go away from Forms and into the SCO tab", only the Student Record Request. The form code is a Registrar code (REG-12), so this placement is flagged in Open Questions. The old DO "Request DOcuments" Google Form (docs.google.com/forms/d/e/1FAIpQLScrTbqQshBHC_uBXhmSPTSXJx7MY6Mm0dXsngqNnquHn9H07Q/viewform) may be out of date. Blank PDF waits in Site\_for Drive\ for upload. %%
+%% Moved here from Forms on PAHIBALO team's request (D57): "Request documents go away from Forms and into the SCO tab", only the Student Record Request. The form code is a Registrar code (REG-12), so this placement is flagged in Open Questions. The old DO "Request DOcuments" Google Form (docs.google.com/forms/d/e/1FAIpQLScrTbqQshBHC_uBXhmSPTSXJx7MY6Mm0dXsngqNnquHn9H07Q/viewform) may be out of date. Blank PDF uploaded to the PAHIBALO Drive on 2026-11-25. %%
 
-%% Moved from the SCO page on 2026-11-24: PAHIBALO team pointed out the Student Record Request belongs to the Registrar. Blank PDF (student-record-request-form.pdf) waits in Site\_for Drive\ for upload. 2026-11-24: PAHIBALO team asked to delete the fee table and every Registrar fee line; the photos stay, including the one with the fee board. %%
+%% Moved from the SCO page on 2026-11-24: PAHIBALO team pointed out the Student Record Request belongs to the Registrar. Blank PDF now on the PAHIBALO Drive (2026-11-25). 2026-11-24: PAHIBALO team asked to delete the fee table and every Registrar fee line; the photos stay, including the one with the fee board. %%
 
 ## When to go
 7:30 AM to 4:30 PM, Monday to Friday (2018). A sign at the door says the office has no noon break. A Frontline Services board stands outside the door.

@@ -13,9 +13,13 @@
   </header>
   <fieldset class="seg-wrap">
     <legend class="sr-only">Grade level</legend>
+    {# Grade sets listed in the note's "unavailable_sets" stay visible but cannot be picked. #}
+    {% set off = n.get("unavailable_sets") or [] %}
+    {% set first = (sets|reject("in", off)|list or [""])[0] %}
     <div class="seg" id="gwaSets">
-      {% for k in sets %}<label><input type="radio" name="set" value="{{ k }}"{% if loop.first %} checked{% endif %}><span>{{ k }}</span></label>{% endfor %}
+      {% for k in sets %}{% if k in off %}<label class="off" title="Temporarily unavailable"><input type="radio" name="set" value="{{ k }}" disabled><span>{{ k }}</span></label>{% else %}<label><input type="radio" name="set" value="{{ k }}"{% if k == first %} checked{% endif %}><span>{{ k }}</span></label>{% endif %}{% endfor %}
     </div>
+    {% if off %}<p class="muted small seg-off">{{ off|join(", ") }} {{ "are" if off|length > 1 else "is" }} temporarily unavailable.</p>{% endif %}
   </fieldset>
   <div class="gwa-body">
     <form id="gwaForm" class="gwa-card paper" autocomplete="off" onsubmit="return false"></form>

@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["financial report", "org finances", "treasurer report", "DSA-10", "ALA funds"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/1PrAKCASokvMbonOcQcZKUuQ4uoIVZsFc/view"
+template_link: "https://drive.google.com/file/d/1JQILqkqGErvb6qZ7GyuuOQGL8ybMp9SB/view"
 template_status: "school-account"
 form_code: "PSHS-00-F-DSA-10"
 needs_signature_from: "Treasurer, president, then the adviser"

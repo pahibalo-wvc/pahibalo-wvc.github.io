@@ -509,11 +509,17 @@ def build_note(n: Note):
         raise SystemExit(f"{n.stem}: templates are no longer hosted on the site (D58); link the Drive copy instead")
     if not link.startswith("http") or status in TEMPLATE_TEXT:
         link = ""
+    chips = []  # "template_chips": ["Label|https://drive...", ...], one chip per extra file
+    for item in n.get("template_chips") or []:
+        label, _, url = str(item).partition("|")
+        if not url.strip().startswith("http"):
+            raise SystemExit(f"{n.stem}: template_chips entry {item!r} needs 'Label|https://...'")
+        chips.append((label.strip(), url.strip()))
     maps = str(n.get("maps_link") or "")
     write(n.url, f"{n.get('layout') or 'note'}.html", n=n, hub=hub, back=back, intro=md(intro, root) if intro.strip() else "",
           secs=keep, related=md(related, root) if related else "", tip=md(tip, root) if tip else "", facts=facts,
           has_template="template_link" in n.fm, template_link=link, template_drive="drive.google" in link,
-          template_school=status == "school-account",
+          template_school=status == "school-account", template_chips=chips,
           template_note=TEMPLATE_TEXT.get(status, TEMPLATE_TEXT["missing"]), maps=maps if maps.startswith("http") else "",
           source=clean_source(n.get("source")), active=hub["url"] if hub else "", owner=owner)
 

@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["enrichment form", "student enrichment", "enrichment application", "DSA-02", "SEF", "SEAF", "competition not sanctioned"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/1LCJo8OYK4aZL2V7QnhJzGgQI8rWNMrje/view"
+template_link: "https://drive.google.com/file/d/1wYME44oacVDrUvuBu0UqT45Y_GPowc7K/view"
 template_status: "school-account"
 form_code: "PSHS-00-F-DSA-02"
 needs_signature_from: "You and your parent or guardian"
@@ -29,7 +29,7 @@ Back to [[Home]]
 ## Who needs it and when
 Scholars applying to join an enrichment activity, like a competition, camp or training outside school.
 
-There is a second version for competitions the school does not run. On that one, your parent agrees that the event is not officially sanctioned by the school, that no teacher or staff member will go as a chaperone, and that your family is fully responsible for your safety. The school only gives recognition and coaching. [Competition version on Google Drive](https://drive.google.com/file/d/1wdyHInFRbKw0KZTHHZjDHjdR3f46QmEH/view).
+There is a second version for competitions the school does not run. On that one, your parent agrees that the event is not officially sanctioned by the school, that no teacher or staff member will go as a chaperone, and that your family is fully responsible for your safety. The school only gives recognition and coaching. The competition version is not on the PAHIBALO Drive yet.
 
 If the activity is off campus or outside class hours, you will usually also file a [[Form - Parent Consent Form]] (PCF), signed by your parent or guardian.
 

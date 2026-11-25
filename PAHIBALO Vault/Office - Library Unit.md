@@ -42,7 +42,7 @@ The 2018 handbook says you can borrow up to four books (2 circulation for 3 days
 ## What else it handles
 - An air-conditioned lounge with bean bags, where you can read or rest.
 - PSHS research papers (since 1996) are room use only and cannot be photocopied.
-- Free internet for research; printing is paid.
+- Free internet for research.
 
 ## When to go
 7:30 AM to 4:30 PM, Monday to Friday. Leave bags at the baggage counter. (2018)

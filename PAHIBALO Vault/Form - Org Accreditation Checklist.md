@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["accreditation", "reaccreditation", "new org", "start an org", "club accreditation", "ALA accreditation", "DSA-08", "DSA-09"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/10cZnaW2GF5Tzu2RE33Da1I-KRHWV4qtU/view"
+template_link: "https://drive.google.com/file/d/1H9u1vNz1gF65MtmTne7TyrLlT9qfgx1q/view"
 template_status: "school-account"
 form_code: "PSHS-00-F-DSA-08"
 needs_signature_from: "Club or ALA coordinator, then the DSA Chief or CID Chief"
@@ -48,16 +48,13 @@ Prepare these papers:
 6. List of officers, with their latest student records
 7. List of members
 
-[Reaccreditation checklist on Google Drive](https://drive.google.com/file/d/1p59ZKHGDU10d8zzYVake1J-LJoAEqG2l/view).
+[Reaccreditation checklist on Google Drive](https://drive.google.com/file/d/1feykqhgnHNRgng_R1r6Nk4yo-jfWNh95/view).
 
 ## Who signs
 The club or ALA coordinator (or the Assistant Division Chief for Student Affairs) reviews it, and the DSA Chief or CID Chief approves it.
 
 ## Where to submit
 The [[Office - Student Affairs Unit]], which accredits orgs and ALAs.
-
-## Other copies
-Copies on the PAHIBALO Drive: [accreditation checklist PDF](https://drive.google.com/file/d/1Q8fgyIeFDX07a5VEEVPaGG4TsDAV2WUt/view), [reaccreditation checklist PDF](https://drive.google.com/file/d/1feykqhgnHNRgng_R1r6Nk4yo-jfWNh95/view).
 
 ## Template
 On the SAU Forms folder on Google Drive.

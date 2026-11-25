@@ -42,7 +42,7 @@
           {% elif icon_name %}<span class="pg-ic t-{{ tag_name }}">{{ icon(icon_name) }}</span>{% endif %}
           <div class="grow">
             <h1>{{ title }}</h1>
-            {% if sub %}<p class="title-sub">{{ sub }}</p>{% endif %}
+            {# No subheading under page titles (PAHIBALO team, 2026-11-25); "sub" is kept for callers but not shown. #}
             {% if caller is defined %}{{ caller() }}{% endif %}
           </div>
         </div>

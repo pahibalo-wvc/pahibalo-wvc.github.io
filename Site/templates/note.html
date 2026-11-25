@@ -30,6 +30,10 @@
   {% else %}
   <div class="coupon coupon-missing"><span class="coupon-ic">{{ icon("scissors") }}</span><span><small class="mono">Template</small><b>Not online yet</b><small>{{ template_note }}</small></span></div>
   {% endif %}
+  {# Forms with several files (like the four LEAP forms) list each one as a chip under the template. #}
+  {% if template_chips %}
+  <nav class="chips tpl-chips" aria-label="Each form">{% for label, url in template_chips %}<a href="{{ url }}">{{ icon("scissors") }}{{ label }}</a>{% endfor %}</nav>
+  {% endif %}
   {% endif %}
 
   {% set rest = n.photos|rejectattr("file", "equalto", hp.file if hp else "")|list %}

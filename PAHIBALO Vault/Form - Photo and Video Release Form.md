@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["photo release", "video release", "SIP photo consent", "DSA-23", "Science Immersion Program"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/11J6cd6raebBfBsyHyVf-4pDb8hmOon2d/view"
+template_link: "https://drive.google.com/file/d/1lW-t55eOxwh0pHA0ts9Y-xhzC9LY94_F/view"
 template_status: "school-account"
 form_code: "PSHS-00-F-DSA-23"
 needs_signature_from: "You, then your parent or guardian"
@@ -51,9 +51,6 @@ You, then your mother, father or guardian.
 
 ## Where to submit
 (unknown)
-
-## Other copies
-Another copy is on the PAHIBALO Drive: [PDF copy](https://drive.google.com/file/d/1F1P6nG6niN0hS69cQyQRvQUGSXgc4NT5/view).
 
 ## Template
 On the SAU Forms folder on Google Drive.

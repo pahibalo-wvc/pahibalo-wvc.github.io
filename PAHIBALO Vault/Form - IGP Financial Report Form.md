@@ -12,7 +12,7 @@ status: "needs-check"
 aliases: ["IGP report", "income generating project report", "IGP financial report", "selling report", "profit report"]
 owner_office: "Office - Student Affairs Unit"
 date: "2026-11-24"
-template_link: "https://drive.google.com/file/d/1KHPValdD438Z9zxWBq6KTB2-J7ss516Q/view"
+template_link: "https://drive.google.com/file/d/1eNnfuFHkVFGRmetqFWJyZZK_Rq5cYbNQ/view"
 template_status: "school-account"
 needs_signature_from: "The organizer, then the adviser"
 submit_to: "SAU Chief"
@@ -46,9 +46,6 @@ The organizer, then the adviser.
 
 ## Where to submit
 The SAU Chief at the [[Office - Student Affairs Unit]].
-
-## Other copies
-Another copy is on the PAHIBALO Drive: [PDF copy](https://drive.google.com/file/d/1eNnfuFHkVFGRmetqFWJyZZK_Rq5cYbNQ/view).
 
 ## Template
 On the SAU Forms folder on Google Drive.
