@@ -29,7 +29,6 @@
 <header class="ph ph-{{ style }} k-{{ tag_name or 'page' }} photo-bg{% if hphoto %} has-photo{% endif %}" data-photo>
   <img class="bg-photo" src="{{ root }}img/{{ bg }}-blur.webp" alt="" width="320" height="180">
   <div class="wrap ph-in">
-    <p class="crumb"><a href="{{ root }}{{ back_url }}">{{ icon("back") }}{{ back_label }}</a></p>
     <div class="ph-grid">
       <div class="piece">
         {% if style == "plaque" %}<span class="screw s1"></span><span class="screw s2"></span><span class="screw s3"></span><span class="screw s4"></span>{% endif %}
@@ -45,6 +44,8 @@
             {# No subheading under page titles (PAHIBALO team, 2026-11-25); "sub" is kept for callers but not shown. #}
             {% if caller is defined %}{{ caller() }}{% endif %}
           </div>
+          {# The back button sits inside the card, in the empty space on the right (PAHIBALO team, 2026-11-25). #}
+          <p class="crumb ph-back"><a href="{{ root }}{{ back_url }}">{{ icon("back") }}{{ back_label }}</a></p>
         </div>
         {% if stamp %}<span class="stamp" aria-hidden="true">{{ stamp }}</span>{% endif %}
       </div>

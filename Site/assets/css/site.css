@@ -371,11 +371,10 @@ a.snap:hover{transform:rotate(0) scale(1.03);z-index:2}
 .ph-idcard .piece{padding-top:30px}
 .ph .piece h1{font-size:clamp(28px,7vw,42px)}
 .pg-hub .ph .hub-search{margin-top:8px}
-/* wide screens: the back button sits in the empty space left of the card instead of above it */
-@media (min-width:820px){
-  .ph-in{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:start}
-  .ph-in>.crumb{margin:8px 0 0}
-}
+/* the back button sits inside the card, on the right; on phones it goes to the top of the card */
+.ph-back{flex:none;align-self:flex-start;margin:0 0 0 auto}
+.ph-ticket .ph-back{margin-right:58px}.ph-ticket .grow{padding-right:0}
+@media (max-width:599px){.piece-row{flex-wrap:wrap}.ph-back{order:-1;flex-basis:100%;margin:0 0 4px}}
 .ph-notice .piece::before{content:"";position:absolute;top:-12px;left:28px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9d8a,var(--red) 55%,#7a1b14);box-shadow:1px 3px 3px rgba(0,0,0,.4)}
 
 /* ---------- reading pages */
