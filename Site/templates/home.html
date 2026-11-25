@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, row, photo %}
+{% block title %}PAHIBALO WVC · a student guide to PSHS-WVC{% endblock %}
+{% block body_class %}pg-home{% endblock %}
+{% block main %}
+{% set parts = settings.hero_title.rsplit(" ", 1) %}
+{# Hero: the real campus photo with a taped-on poster. The poster is solid paper, so text never sits on the bare photo. #}
+<section class="hero" data-photo>
+  <img class="hero-photo" src="img/building.webp" srcset="img/building-800.webp 800w, img/building.webp 1600w" sizes="100vw" alt="The main building of PSHS Western Visayas Campus" width="1600" height="879" fetchpriority="high">
+  <div class="wrap hero-in">
+    <div class="poster">
+      <span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
+      <p class="poster-head"><span class="mono">PSHS-WVC · Bito-on, Jaro</span><span class="mono">{{ total }} pages</span></p>
+      <p class="hand hero-note">{{ settings.hero_note }}</p>
+      <h1>{% if parts|length == 2 %}{{ parts[0] }} {% endif %}<span class="scribble">{{ parts[-1] }}<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 40 4, 70 18, 105 9 S 170 4, 197 12"/></svg></span></h1>
+      <p class="hero-text">{{ settings.hero_text }}</p>
+      <form class="search" action="search.html" role="search" id="homeSearch">
+        <label for="q" class="mono">Look something up</label>
+        <div class="search-box">
+          {{ icon("search") }}
+          <input id="q" name="q" type="search" placeholder="{{ settings.search_placeholder }}" autocomplete="off" enterkeyhint="search">
+          <button class="go" type="submit" aria-label="Search">{{ icon("arrow") }}</button>
+        </div>
+        <div class="peek" id="peek" hidden></div>
+      </form>
+      <div class="quick">
+        <h2 class="mono">Most asked</h2>
+        <div class="tags">{% for n, label in quick %}<a href="{{ n.url }}">{{ label }}</a>{% endfor %}</div>
+      </div>
+      <img class="sticker" src="img/pahibalo-logo-wvc.webp" alt="PAHIBALO WVC logo" width="400" height="400">
+    </div>
+    <p class="photo-label" aria-hidden="true"><span class="pin"></span><span class="hand">{{ settings.photo_caption }}</span></p>
+  </div>
+</section>
+
+{# Sections as manila folders with coloured tabs. #}
+<section class="wrap block" aria-labelledby="h-browse">
+  <h2 class="h-sec" id="h-browse"><span class="mono">01</span>Browse by section</h2>
+  <div class="folders">
+    {% for t in tiles %}
+    <a class="folder k-{{ t.tag }}" href="{{ t.url }}">
+      <span class="folder-tab">{{ t.label }}</span>
+      <span class="folder-body"><span class="folder-ic t-{{ t.tag }}">{{ icon(t.icon) }}</span><small class="mono">{{ t.sub|gaps }}</small></span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{# A cork board of real photos from the pages, each linking to its page. #}
+{% if gallery %}
+<section class="wrap block" aria-labelledby="h-board">
+  <h2 class="h-sec" id="h-board"><span class="mono">02</span>Around campus</h2>
+  <div class="cork home-cork">
+    <div class="cork-grid nm">
+      {% for p in gallery[:8] %}
+      <a class="snap k-{{ p.kind }}" href="{{ p.page.url }}"><span class="{{ 'tape' if loop.index is odd else 'pin' }}" aria-hidden="true"></span>{{ photo("", p, "(max-width: 700px) 45vw, 260px") }}<span class="cap">{{ p.page.title }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# "I need to…" as a spiral notebook page. #}
+<section class="wrap block" aria-labelledby="h-need">
+  <div class="notebook torn-bottom">
+    <span class="spiral" aria-hidden="true"></span>
+    <h2 class="h-sec" id="h-need"><span class="mono">03</span>I need to…</h2>
+    <p class="muted">{{ settings.need_text }}</p>
+    <ul class="task-list">
+      {% for t in tasks if t.targets %}{% if loop.index <= 8 %}
+      <li><a href="{{ t.targets[0].url }}"><span class="box">{{ icon("check") }}</span><span>{{ t.text }}</span></a></li>
+      {% endif %}{% endfor %}
+    </ul>
+    <a class="more-link" href="i-need-to.html">See all {{ tasks|length }} tasks {{ icon("arrow") }}</a>
+  </div>
+</section>
+
+{# Journeymap teaser: six stops in three colours. #}
+<section class="wrap block" aria-labelledby="h-road">
+  <h2 class="h-sec" id="h-road"><span class="mono">04</span>Six years, three stages</h2>
+  <a class="mini-road" href="journeymap.html">
+    {% for s in j.stages %}{% for stop in s.stops %}
+    <span class="mini-stop gg-{{ s.key }}"><b>G{{ stop.num }}</b><small>{{ s.name if loop.first else "" }}</small></span>
+    {% endfor %}{% endfor %}
+    <span class="mini-go">Open the Journeymap {{ icon("arrow") }}</span>
+  </a>
+</section>
+
+{# Starter Kit as index cards pinned in reading order. #}
+<section class="wrap block" aria-labelledby="h-new">
+  <h2 class="h-sec" id="h-new"><span class="mono">05</span>{{ settings.new_title }}</h2>
+  <ol class="kit-list">
+    {% for k in kit %}
+    <li><a class="card-pin" href="{{ k.url }}"><span class="num">{{ loop.index }}</span><span><b>{{ k.title }}</b><small>{{ k.summary|gaps }}</small></span></a></li>
+    {% endfor %}
+  </ol>
+</section>
+
+{# Orgs as badges pinned to a board: each logo links to its page. #}
+{% if orgs %}
+<section class="wrap block" aria-labelledby="h-orgs">
+  <div class="h-row"><h2 class="h-sec" id="h-orgs"><span class="mono">06</span>Orgs you can join</h2><a href="orgs/index.html">All orgs {{ icon("arrow") }}</a></div>
+  <div class="org-board">
+    {% for o in orgs %}
+    <a class="org-badge k-org" href="{{ o.url }}"><img src="img/photos/{{ o.thumb.file }}-300.webp" alt="" width="64" height="64" loading="lazy"><span>{{ o.title }}</span></a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# Recently updated: one small line, so the space goes to things people use. #}
+<p class="wrap recent-line"><span class="mono">Updated lately</span>{% for n in recent[:4] %}<a href="{{ n.url }}">{{ n.title }}</a>{% endfor %}<a class="all" href="search.html">All {{ total }} pages</a></p>
+
+{# About: the cover art pinned beside a typed note. #}
+<section class="band about-band" aria-labelledby="h-about">
+  <div class="wrap about">
+    <figure class="snap about-snap k-org"><span class="tape" aria-hidden="true"></span><img src="img/cover-art.webp" alt="PAHIBALO cover art: the two mascots beside the word PAHIBALO" width="960" height="421" loading="lazy"></figure>
+    <div class="about-card">
+      <h2 id="h-about">{{ settings.about_title }}</h2>
+      <p>{{ settings.about_text }}</p>
+      <a class="btn" href="about.html">About PAHIBALO {{ icon("arrow") }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

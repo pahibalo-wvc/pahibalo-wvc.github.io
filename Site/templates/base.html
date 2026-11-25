@@ -1,0 +1,74 @@
+{% from "_macros.html" import icon %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+{% block head %}{% endblock %}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}PAHIBALO{% endblock %}</title>
+<meta name="description" content="{% block desc %}Forms, offices, orgs and grades at PSHS-WVC, written down by students.{% endblock %}">
+{% if (settings.search_engines or "off")|lower != "on" %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="theme-color" content="#F3EDE0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12161F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="{{ root }}img/pahibalo-logo-wvc-96.webp">
+<link rel="preload" href="{{ root }}fonts/bricolage-400-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ root }}css/site.css">
+<style>{{ area_css }}</style>{# card colours and picture borders come from the Site Areas note #}
+<script>try{var t=localStorage.getItem("pahi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% include "_icons.svg" %}
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="{{ root }}index.html" aria-label="PAHIBALO WVC home, a student guide to PSHS Western Visayas Campus"><span class="coins" aria-hidden="true"><img class="coin coin-pisay" src="{{ root }}img/pshs-logo.webp" alt="" width="40" height="40"><img class="coin coin-pahi" src="{{ root }}img/pahibalo-logo.webp" alt="" width="40" height="40"></span><span class="brand-word"><span class="bw-main">PAHIBALO</span><span class="wvc">WVC</span></span></a>
+    <nav class="topnav" aria-label="Sections">
+      {% for h in nav_top %}<a href="{{ root }}{{ h.url }}"{% if active == h.url %} aria-current="page"{% endif %}>{{ h.label }}</a>{% endfor %}<span class="topnav-end">{% for h in nav_pinned %}<a href="{{ root }}{{ h.url }}"{% if active == h.url %} aria-current="page"{% endif %}>{{ h.label }}</a>{% endfor %}<button type="button" class="topnav-more" data-more aria-expanded="false" aria-controls="moreSheet">More {{ icon("more") }}</button></span>
+    </nav>
+    <div class="top-actions">
+      <a class="icon-btn" href="{{ root }}search.html" aria-label="Search the site" title="Search (press /)">{{ icon("search") }}</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark">{{ icon("moon") }}</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+
+<footer class="foot torn-top">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <span class="coins big" aria-hidden="true"><img class="coin coin-pisay" src="{{ root }}img/pshs-logo.webp" alt="" width="56" height="56" loading="lazy"><img class="coin coin-pahi" src="{{ root }}img/pahibalo-logo.webp" alt="" width="56" height="56" loading="lazy"></span>
+      <p><b class="brand-word"><span class="bw-main">PAHIBALO</span><span class="wvc">WVC</span></b><span class="hand">to inform.</span><small class="foot-tag">A student guide to PSHS Western Visayas Campus</small></p>
+    </div>
+    <p class="foot-note">{{ settings.footer_note }}</p>
+    <nav class="foot-links" aria-label="More pages">
+      {% for l in footer_links %}<a href="{{ root }}{{ l.url }}">{{ l.label }}</a>{% endfor %}
+      {% if settings.report_link.startswith("http") %}<a href="{{ settings.report_link }}">Report an error</a>{% endif %}
+    </nav>
+    <p class="foot-credit"><img src="{{ root }}img/pshs-logo.webp" alt="" width="24" height="24" loading="lazy"><span>PSHS Western Visayas Campus · Mascot and logo art by Laniog D. · PSHS logo used with permission</span></p>
+  </div>
+</footer>
+
+<nav class="bot" aria-label="Quick menu">
+  <a href="{{ root }}index.html"{% if active == "index.html" %} aria-current="page"{% endif %}>{{ icon("home") }}<span>Home</span></a>
+  <a href="{{ root }}search.html"{% if active == "search.html" %} aria-current="page"{% endif %}>{{ icon("search") }}<span>Search</span></a>
+  <a href="{{ root }}tools/gwa-calculator.html"{% if active == "tools/gwa-calculator.html" %} aria-current="page"{% endif %}>{{ icon("tool") }}<span>GWA</span></a>
+  <button type="button" id="moreBtn" data-more aria-expanded="false" aria-controls="moreSheet">{{ icon("more") }}<span>More</span></button>
+</nav>
+<div class="sheet" id="moreSheet" hidden>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="moreTitle">
+    <div class="sheet-head"><h2 id="moreTitle">All sections</h2><button type="button" class="icon-btn" id="moreClose" aria-label="Close">{{ icon("close") }}</button></div>
+    <div class="sheet-links">
+      {% for h in sheet_links %}<a href="{{ root }}{{ h.url }}">{{ icon(h.icon) }}{{ h.label }}</a>{% endfor %}
+    </div>
+  </div>
+</div>
+<script>window.PAHI_ROOT="{{ root }}";</script>
+<script src="{{ root }}search-index.js" defer></script>
+<script src="{{ root }}js/site.js" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon %}
+{% block title %}GWA calculator · PAHIBALO WVC{% endblock %}
+{% block desc %}Work out your PSHS general weighted average from your subject grades.{% endblock %}
+{% block body_class %}pg-tool pg-gwa{% endblock %}
+{% block main %}
+{# One compact screen: grade level, every subject and the result, with no big header. #}
+<article class="wrap gwa">
+  <header class="gwa-head">
+    <p class="crumb"><a href="{{ root }}index.html">{{ icon("back") }}Home</a></p>
+    <h1>GWA Calculator</h1>
+    <p class="muted small">1.00 is the best grade. Nothing is saved or sent anywhere.</p>
+  </header>
+  <fieldset class="seg-wrap">
+    <legend class="sr-only">Grade level</legend>
+    <div class="seg" id="gwaSets">
+      {% for k in sets %}<label><input type="radio" name="set" value="{{ k }}"{% if loop.first %} checked{% endif %}><span>{{ k }}</span></label>{% endfor %}
+    </div>
+  </fieldset>
+  <div class="gwa-body">
+    <form id="gwaForm" class="gwa-card paper" autocomplete="off" onsubmit="return false"></form>
+    <div class="gwa-out receipt paper" aria-live="polite">
+      <p class="gwa-big"><span class="gwa-label">Your GWA</span><output id="gwaVal">…</output><span id="gwaMood" class="gwa-mood">Choose a grade for each subject.</span></p>
+      <details><summary>Working</summary><pre id="gwaWork">Nothing yet.</pre></details>
+    </div>
+  </div>
+  <details class="gwa-how muted small"><summary>How this is worked out</summary>
+    <p>GWA = sum of (grade × units) ÷ sum of units of the graded subjects. Values Education is marked Complete or Incomplete, so it is left out. Like the report card, the result is cut to two decimals, not rounded (<a class="wl" href="{{ root }}guides/grading-system.html">Grading System</a>). Grades 8 and 9 use units from current report cards; the other grades still use the 2015 curriculum matrix (<a class="wl" href="{{ root }}guides/curriculum-and-units.html">Curriculum and Units</a>), so check with your adviser.</p>
+  </details>
+</article>
+{% endblock %}
+{% block scripts %}<script>window.GWA_SETS={{ sets|tojson }};</script>{% endblock %}

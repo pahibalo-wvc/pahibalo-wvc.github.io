@@ -1,0 +1,4 @@
+{% from "_macros.html" import row %}
+<div class="dir">
+{% for n in items %}{{ row(n, root) }}{% else %}<p class="muted">Nothing here yet.</p>{% endfor %}
+</div>

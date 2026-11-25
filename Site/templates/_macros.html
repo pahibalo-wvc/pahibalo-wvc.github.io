@@ -1,0 +1,87 @@
+{# Small pieces used on many pages. #}
+{% macro icon(name, cls="ic") %}<svg class="{{ cls }}" aria-hidden="true"><use href="#i-{{ name }}"/></svg>{% endmacro %}
+
+{% macro tag(kind) %}<span class="tag t-{{ kind }}">{{ kind }}</span>{% endmacro %}
+
+{# Grade-group chips (Freshies, Juniors, Seniors) from a page's grade property. #}
+{% macro groups(n, cls="gchips") %}{% if n.groups %}<span class="{{ cls }}">{% for g in n.groups %}<span class="gchip gg-{{ g.key }}">{{ g.name }}</span>{% endfor %}</span>{% endif %}{% endmacro %}
+
+{# A picture from assets/img/photos with its size, a 600 px copy for phones, and a colour-coded frame. #}
+{% macro photo(root, p, sizes="(max-width: 700px) 92vw, 560px", lazy=True, cls="") %}
+<img class="{{ cls }}" src="{{ root }}img/photos/{{ p.file }}.webp"{% if p.small %} srcset="{{ root }}img/photos/{{ p.file }}-600.webp 600w, {{ root }}img/photos/{{ p.file }}.webp {{ p.w }}w" sizes="{{ sizes }}"{% endif %} alt="{{ p.alt }}" width="{{ p.w }}" height="{{ p.h }}"{% if lazy %} loading="lazy"{% endif %}{% if not p.file.startswith("placeholder-") %} data-info{% endif %}>
+{% endmacro %}
+
+{# One Directory row: a file card with the page's own icon, the Owns / Needs / From line, grade chips and a thumbnail. #}
+{% macro row(n, root) %}
+{% set con = connection(n) %}
+<a class="row k-{{ n.area.tag }}" href="{{ root }}{{ n.url }}" data-groups="{{ n.groups|map(attribute='key')|join(' ') or 'all' }}">
+  <span class="row-ic t-{{ n.area.tag }}">{{ icon(n.icon) }}</span>
+  <span class="row-main"><b>{{ n.title }}</b>{% if con %}<small class="con">{{ con }}</small>{% endif %}{% if n.summary %}<small class="sum">{{ n.summary|gaps }}</small>{% endif %}{{ groups(n) }}</span>
+  {% if n.thumb and n.type != "office" %}<img class="row-thumb{% if n.thumb.logo %} is-logo{% endif %}" src="{{ root }}img/photos/{{ n.thumb.file }}{{ '-300' if n.thumb.logo else ('-600' if n.thumb.small else '') }}.webp" alt="" width="64" height="64" loading="lazy">{% else %}{{ tag(n.area.tag) }}{% endif %}
+</a>
+{% endmacro %}
+
+{# The top of every inner page. The title piece changes shape with the area:
+   form = a printed form sheet, office = a door plaque, org = a badge, event = a ticket,
+   comp = a certificate, guide = a handbook chapter, starter = an ID card, dorm and commute = a luggage tag,
+   place = a map card, hub and others = a pinned notice. A sharp header photo sits beside it when the page has one. #}
+{% macro page_hero(root, bg, back_url, back_label, title, icon_name="", tag_name="", sub="", style="notice", code="", hphoto=None, logo=None, stamp="") %}
+<header class="ph ph-{{ style }} k-{{ tag_name or 'page' }} photo-bg{% if hphoto %} has-photo{% endif %}" data-photo>
+  <img class="bg-photo" src="{{ root }}img/{{ bg }}-blur.webp" alt="" width="320" height="180">
+  <div class="wrap ph-in">
+    <p class="crumb"><a href="{{ root }}{{ back_url }}">{{ icon("back") }}{{ back_label }}</a></p>
+    <div class="ph-grid">
+      <div class="piece">
+        {% if style == "plaque" %}<span class="screw s1"></span><span class="screw s2"></span><span class="screw s3"></span><span class="screw s4"></span>{% endif %}
+        {% if style == "sheet" %}<p class="sheet-top"><span>PSHS-WVC · student copy</span>{% if code %}<span class="code">{{ code }}</span>{% endif %}</p>{% endif %}
+        {% if style == "ticket" %}<span class="punch" aria-hidden="true"></span>{% endif %}
+        {% if style == "luggage" %}<span class="eyelet" aria-hidden="true"></span>{% endif %}
+        {% if style == "idcard" %}<span class="slot" aria-hidden="true"></span>{% endif %}
+        <div class="piece-row">
+          {% if logo %}<img class="ph-logo" src="{{ root }}img/photos/{{ logo.file }}-300.webp" alt="{{ title }} logo" width="300" height="300" data-info>
+          {% elif icon_name %}<span class="pg-ic t-{{ tag_name }}">{{ icon(icon_name) }}</span>{% endif %}
+          <div class="grow">
+            <h1>{{ title }}</h1>
+            {% if sub %}<p class="title-sub">{{ sub }}</p>{% endif %}
+            {% if caller is defined %}{{ caller() }}{% endif %}
+          </div>
+        </div>
+        {% if stamp %}<span class="stamp" aria-hidden="true">{{ stamp }}</span>{% endif %}
+      </div>
+      {% if hphoto %}
+      <figure class="ph-photo snap k-{{ hphoto.kind }}"><span class="tape" aria-hidden="true"></span>{{ photo(root, hphoto, "(max-width: 700px) 92vw, 420px", False) }}</figure>
+      {% endif %}
+    </div>
+  </div>
+</header>
+{% endmacro %}
+
+{# Which header shape each area uses. #}
+{% macro style_of(tag) %}{{ {"form": "sheet", "office": "plaque", "org": "badge", "event": "ticket", "comp": "certificate", "guide": "chapter", "starter": "idcard", "dorm": "luggage", "commute": "luggage", "place": "mapcard", "tool": "sheet"}.get(tag, "notice") }}{% endmacro %}
+
+{# The collage on org, event and competition pages: a cork board with slightly tilted snapshots,
+   tape or a pin on each, a soft shadow and a short caption. The first one is the big one. #}
+{% macro collage(root, photos, kind="event") %}
+<aside class="collage" aria-label="Pictures">
+  <h2 class="cork-title">Pictures</h2>
+  <div class="collage-grid n{{ photos|length if photos|length < 4 else 'm' }}">
+    {% for p in photos %}
+    <figure class="snap k-{{ p.kind }}{% if loop.first %} big{% endif %}"><span class="{{ ['tape', 'pin', 'tape t2', 'pin'][loop.index0 % 4] }}" aria-hidden="true"></span>{{ photo(root, p, "(max-width: 959px) 92vw, 420px" if loop.first else "(max-width: 519px) 92vw, (max-width: 959px) 46vw, 210px") }}{% if p.caption %}<figcaption>{{ p.caption }}</figcaption>{% endif %}</figure>
+    {% endfor %}
+  </div>
+</aside>
+{% endmacro %}
+
+{# A cork board of framed photos. #}
+{% macro gallery(root, photos, title="Pictures") %}
+{% if photos %}
+<section class="cork" aria-label="{{ title }}">
+  <h2 class="cork-title">{{ title }}</h2>
+  <div class="cork-grid n{{ photos|length if photos|length < 4 else 'm' }}">
+    {% for p in photos %}
+    <figure class="snap k-{{ p.kind }}"><span class="{{ 'tape' if loop.index is odd else 'pin' }}" aria-hidden="true"></span>{{ photo(root, p) }}{% if p.caption %}<figcaption>{{ p.caption }}</figcaption>{% endif %}</figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endmacro %}

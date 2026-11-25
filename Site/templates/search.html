@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon %}
+{% block title %}Search · PAHIBALO WVC{% endblock %}
+{% block desc %}Search every form, org, office and guide on PAHIBALO.{% endblock %}
+{% block body_class %}pg-search{% endblock %}
+{% block main %}
+<header class="ph ph-notice photo-bg search-hero k-page" data-photo>
+  <img class="bg-photo" src="img/campus-blur.webp" alt="" width="320" height="180" loading="lazy">
+  <div class="wrap ph-in">
+    <p class="crumb"><a href="index.html">{{ icon("back") }}Home</a></p>
+    <div class="piece">
+      <h1>Search everything</h1>
+      <form class="search search-page" role="search" onsubmit="return false">
+        <label for="sq" class="mono">Type a name, a nickname or what you need to do</label>
+        <div class="search-box">{{ icon("search") }}<input id="sq" type="search" placeholder="{{ settings.search_placeholder }}" autocomplete="off" enterkeyhint="search"></div>
+      </form>
+    </div>
+  </div>
+</header>
+<div class="wrap page">
+  {# Folded on phones so results start near the top; site.js opens it on wide screens. #}
+  <details class="filter-box" id="filterBox">
+    <summary>Filters <span id="filterNote"></span></summary>
+    <fieldset class="filters">
+      <legend>Show</legend>
+      <div class="chips" id="areaChips">
+        <button type="button" data-area="all" aria-pressed="true">All</button>
+        {% for h in HUBS.values() %}<button type="button" data-area="{{ h.key }}" aria-pressed="false">{{ h.name }}</button>{% endfor %}
+      </div>
+    </fieldset>
+    <fieldset class="filters">
+      <legend>Year</legend>
+      <div class="chips" id="gradeChips">
+        {% for g in GROUPS %}<button type="button" data-grade="{{ g.key }}" aria-pressed="false">{{ g.name }} (G{{ g.grades[0][1:] }}-{{ g.grades[-1][1:] }})</button>{% endfor %}
+      </div>
+    </fieldset>
+  </details>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="dir" id="results"></div>
+  <p class="search-help">Search knows nicknames and tasks too, so “DO” finds the Student Conduct Office and “go home” finds the Leave Pass. The year filter also keeps pages that are for every year. If something is missing, tell the PAHIBALO team.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero %}
+{% block title %}About and credits · PAHIBALO WVC{% endblock %}
+{% block desc %}Who runs PAHIBALO, and who made the art and photos.{% endblock %}
+{% block main %}
+{{ page_hero(root, n.get("photo") or "cover-art", "index.html", "Home", "About and credits", "org", "org") }}
+<article class="wrap page">
+  <figure class="snap about-snap big k-org"><span class="tape" aria-hidden="true"></span><img src="{{ root }}img/cover-art.webp" alt="PAHIBALO cover art: the two mascots beside the word PAHIBALO" width="960" height="421" loading="lazy" data-info><figcaption class="hand">art by Laniog D.</figcaption></figure>
+  <div class="prose sheet-paper">
+    <p>{{ settings.about_text }}</p>
+    {{ body }}
+  </div>
+</article>
+{% endblock %}

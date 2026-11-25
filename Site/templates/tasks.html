@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, page_hero %}
+{% block title %}I need to… · PAHIBALO WVC{% endblock %}
+{% block desc %}Pick what you need to do at PSHS-WVC and go straight to the right page.{% endblock %}
+{% block main %}
+{{ page_hero(root, n.get("photo") or "walkway", "index.html", "Home", "I need to…", "check", "page", settings.need_text) }}
+<article class="wrap page">
+  <div class="notebook torn-bottom">
+    <span class="spiral" aria-hidden="true"></span>
+    <ul class="tasks">
+      {% for t in tasks %}
+      <li>
+        {% if t.targets %}
+        <a class="task" href="{{ root }}{{ t.targets[0].url }}"><span class="box">{{ icon("check") }}</span><b>{{ t.text }}</b><small>{{ t.targets[0].title }}</small></a>
+        {% if t.targets|length > 1 %}<p class="task-more">Also: {% for x in t.targets[1:] %}<a class="wl" href="{{ root }}{{ x.url }}">{{ x.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+        {% elif t.text.lower().startswith("ask") and settings.ask_link.startswith("http") %}
+        <a class="task" href="{{ settings.ask_link }}"><span class="box">{{ icon("check") }}</span><b>{{ t.text }}</b><small>PAHIBALO question form</small></a>
+        {% else %}
+        <div class="task task-off"><span class="box">{{ icon("check") }}</span><b>{{ t.text }}</b><small>Link coming soon</small></div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>
+{% endblock %}

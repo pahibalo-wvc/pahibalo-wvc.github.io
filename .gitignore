@@ -1,0 +1,22 @@
+# Only the public site vault and the site code go to GitHub (D70, D71).
+# Everything else in this project folder stays on this laptop.
+/*
+!/.gitignore
+!/README.md
+!/.github/
+!/PAHIBALO Vault/
+!/Site/
+
+# Never public: raw photos (unblurred faces), private names, reviews, retyped forms, built output
+/Site/_downloads/
+/Site/private_names.txt
+/Site/_review/
+/Site/_for Drive/
+/Site/_safe to delete/
+/Site/dist/
+/Site/.claude/
+/PAHIBALO Vault/.obsidian/workspace*.json
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

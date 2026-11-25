@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero %}
+{# The default layout for a standalone page: any note with a "publish" address. #}
+{% block title %}{{ n.title }} · PAHIBALO WVC{% endblock %}
+{% block desc %}{{ n.summary or n.title }}{% endblock %}
+{% block main %}
+{{ page_hero(root, n.get("photo") or "building", "index.html", "Home", n.title, n.get("icon") or "", "page", n.summary) }}
+<article class="wrap page">
+  <div class="prose sheet-paper paper">{{ body }}</div>
+</article>
+{% endblock %}

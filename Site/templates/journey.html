@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, page_hero %}
+{# Journeymap: six years as a road with three stages. Every stop is built from the pages' grade property. #}
+{% block title %}Journeymap · PAHIBALO WVC{% endblock %}
+{% block desc %}{{ n.summary }}{% endblock %}
+{% block body_class %}pg-journey{% endblock %}
+{% block main %}
+{{ page_hero(root, n.get("photo") or "quad-wide", "index.html", "Home", n.title, "map", "page", n.summary, style="notice") }}
+<article class="wrap page journey">
+  <div class="prose j-intro">{{ body }}</div>
+  <nav class="j-legend" aria-label="Stages">
+    {% for s in j.stages %}<a class="j-stage-link gg-{{ s.key }}" href="#{{ s.key }}"><b>{{ s.name }}</b><small>G{{ s.grades[0][1:] }} to G{{ s.grades[-1][1:] }}{% if s.aka %} · {{ s.aka.split(" (")[0] }}{% endif %}</small></a>{% endfor %}
+  </nav>
+  <ol class="road">
+    {% for s in j.stages %}
+    <li class="stage gg-{{ s.key }}" id="{{ s.key }}">
+      <h2 class="stage-name"><span class="mono">Stage {{ loop.index }}</span>{{ s.name }}{% if s.aka %} <small>{{ s.aka }}</small>{% endif %}</h2>
+      {% for stop in s.stops %}
+      <section class="stop" aria-labelledby="y{{ stop.num }}">
+        <h3 class="stop-year" id="y{{ stop.num }}"><span>G{{ stop.num }}</span>Grade {{ stop.num }}</h3>
+        {% if stop.pages %}
+        <ul class="stop-list">
+          {% for p in stop.pages %}<li><a class="k-{{ p.area.tag }}" href="{{ root }}{{ p.url }}"><span class="row-ic t-{{ p.area.tag }}">{{ icon(p.icon) }}</span><span><b>{{ p.title }}</b><small>{{ p.area.name }}{% if p.type == "event" and p.get("when") and "unknown" not in p.get("when") %} · {{ p.get("when") }}{% endif %}</small></span></a></li>{% endfor %}
+        </ul>
+        {% else %}
+        <p class="stop-empty">No page is just for Grade {{ stop.num }} yet. We are still collecting what this year is like.</p>
+        {% endif %}
+      </section>
+      {% endfor %}
+      {% if s.wide %}
+      <p class="stage-wide"><span class="mono">Across this stage</span> {% for p in s.wide %}<a class="wl" href="{{ root }}{{ p.url }}">{{ p.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  {% if j.every %}
+  <section class="j-every">
+    <h2>Every year</h2>
+    <p>{% for p in j.every %}<a class="wl" href="{{ root }}{{ p.url }}">{{ p.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  </section>
+  {% endif %}
+</article>
+{% endblock %}

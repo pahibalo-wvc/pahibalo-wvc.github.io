@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, row, page_hero, groups as gchips %}
+{% block title %}{{ h.name }} · PAHIBALO WVC{% endblock %}
+{% block desc %}{{ h.summary }}{% endblock %}
+{% block body_class %}pg-hub hub-{{ h.tag }}{% endblock %}
+{% block main %}
+{% call page_hero(root, h.photo, "index.html", "Home", h.name, h.icon, h.tag, h.summary, style="notice") %}
+<p class="hub-count"><span class="mono">{{ items|length }} {{ h.noun }}</span></p>
+<a class="hub-search" href="{{ root }}search.html?area={{ h.key }}">{{ icon("search") }}<span>Search in {{ h.name }}</span></a>
+{% endcall %}
+<div class="wrap page hub">
+  {% if groups %}
+  {# Grade-group filter: shows pages for that stage plus pages for every year. Works without JS (all shown). #}
+  <div class="gfilter" role="group" aria-label="Show pages for">
+    <button type="button" data-g="" aria-pressed="true">All years</button>
+    {% for g in groups %}<button type="button" class="gg-{{ g.key }}" data-g="{{ g.key }}" aria-pressed="false">{{ g.name }} <small>G{{ g.grades[0][1:] }}-{{ g.grades[-1][1:] }}</small></button>{% endfor %}
+  </div>
+  {% endif %}
+  {% if layout_kind == "places" %}
+  <div class="places">
+    {% for p in items %}
+    <a class="place-card k-place" href="{{ root }}{{ p.url }}">
+      {% if p.thumb %}<img src="{{ root }}img/photos/{{ p.thumb.file }}{{ '-600' if p.thumb.small else '' }}.webp" alt="{{ (p.photos[0].alt if p.photos else p.title) }}" width="{{ p.thumb.w }}" height="{{ p.thumb.h }}" loading="lazy" data-info>{% endif %}
+      <span class="place-body"><small class="mono">{{ p.get("kind") or "Place" }}</small><b>{{ p.title }}</b><small>{{ p.get("address")|gaps }}</small></span>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="dir" id="hubList">{% for p in items %}{{ row(p, root) }}{% else %}<p class="muted">Nothing here yet.</p>{% endfor %}</div>
+  {% endif %}
+  {% if body %}<div class="prose hub-note">{{ body }}</div>{% endif %}
+</div>
+{% endblock %}

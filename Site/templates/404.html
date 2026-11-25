@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{# Hosts serve this page for any missing address, so links must start from the site root. #}
+{% block head %}<base href="/">{% endblock %}
+{% block title %}Page not found · PAHIBALO WVC{% endblock %}
+{% block main %}
+<section class="lost photo-bg" data-photo>
+  <img class="bg-photo" src="img/campus-blur.webp" alt="" width="320" height="180" loading="lazy">
+  <div class="wrap">
+    <div class="lost-card">
+      <img src="img/pahibalo-logo.webp" alt="" width="120" height="120">
+      <h1>This page is not here</h1>
+      <p>It may have moved when we renamed something. Try searching for it.</p>
+      <form class="search" action="search.html" role="search">
+        <label for="q404" class="mono">Search the site</label>
+        <div class="search-box"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="q404" name="q" type="search" placeholder="{{ settings.search_placeholder }}"><button class="go" type="submit" aria-label="Search"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </form>
+      <p><a class="btn" href="index.html">Back to the home page</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

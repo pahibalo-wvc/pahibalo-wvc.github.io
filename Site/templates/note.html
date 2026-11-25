@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, tag, groups, page_hero, style_of, gallery, collage, photo %}
+{% block title %}{{ n.title }} · PAHIBALO WVC{% endblock %}
+{% block desc %}{{ n.summary }}{% endblock %}
+{% block body_class %}pg-note pg-{{ n.type }}{% endblock %}
+{% block main %}
+{% set hp = None %}
+{% if n.get("header_photo") %}{% set hp = (n.photos|selectattr("file", "equalto", n.get("header_photo"))|list or [None])[0] %}{% endif %}
+{% set logo = n.thumb if n.thumb and n.thumb.logo else None %}
+{% set stamps = {"form": "fill out", "office": "visit", "event": "save the date", "comp": "compete", "place": "near campus", "starter": "start here", "dorm": "dormers", "commute": "dormers", "guide": "read first"} %}
+{% call page_hero(root, n.area.photo, back.url if back else "index.html", back.name if back else "Home", n.title, n.icon, n.area.tag,
+                  style=style_of(n.area.tag)|trim, code=n.get("form_code") or "", hphoto=hp, logo=logo, stamp=stamps.get(n.area.tag, "")) %}
+<p class="pg-meta">{{ tag(n.area.tag) }}{{ groups(n, "gchips big") }}{% if n.type == "event" and n.get("when") %}<span class="meta-when">{{ n.get("when")|gaps }}</span>{% endif %}</p>
+{% endcall %}
+<article class="wrap page">
+  {# The answer in the first screen: an index card with the summary and this area's key facts. #}
+  <dl class="facts paper k-{{ n.area.tag }}">
+    <div class="facts-short"><dt>In short</dt><dd>{{ (n.summary or "(unknown)")|gaps }}</dd></div>
+    {% for label, value in facts %}<div><dt>{{ label }}</dt><dd>{{ value }}</dd></div>{% endfor %}
+  </dl>
+
+  {% if maps %}
+  <a class="maps-btn" href="{{ maps }}">{{ icon("pin") }}<span><b>Open in Google Maps</b><small>Directions, hours and more photos</small></span>{{ icon("link", "ic go") }}</a>
+  {% endif %}
+
+  {% if has_template %}
+  {# The template link always comes before the senior tip (D43). Templates live on Google Drive and open in a new tab (D58). #}
+  {% if template_link %}
+  <a class="coupon" href="{{ template_link }}"><span class="coupon-ic">{{ icon("scissors") }}</span><span><small class="mono">Template</small><b>{{ "Open the template" }}</b><small>{{ "Google Drive. Sign in with your school account" if template_school else ("Google Drive, opens in a new tab" if template_drive else "Opens in a new tab") }}</small></span>{{ icon("link", "ic go") }}</a>
+  {% else %}
+  <div class="coupon coupon-missing"><span class="coupon-ic">{{ icon("scissors") }}</span><span><small class="mono">Template</small><b>Not online yet</b><small>{{ template_note }}</small></span></div>
+  {% endif %}
+  {% endif %}
+
+  {% set rest = n.photos|rejectattr("file", "equalto", hp.file if hp else "")|list %}
+  {% if n.type in ("org", "event", "competition") and rest %}
+  {# Orgs, events and competitions: the words first, then a cork-board collage of tilted snapshots.
+     Side by side on wide screens (the board stays in view while you read); stacked on phones, words first. #}
+  <div class="board">
+    <div class="board-text">
+      {% if intro %}<div class="prose">{{ intro }}</div>{% endif %}
+      {% for h, html, warn in secs %}<section class="sec{% if warn %} warn{% endif %}"><h2>{{ h }}</h2>{{ html }}</section>{% endfor %}
+    </div>
+    {{ collage(root, rest, n.area.tag) }}
+  </div>
+  {% else %}
+  {% if intro %}<div class="prose">{{ intro }}</div>{% endif %}
+  {% for h, html, warn in secs %}
+  <section class="sec{% if warn %} warn{% endif %}"><h2>{{ h }}</h2>{{ html }}</section>
+  {% if loop.first and rest %}{{ gallery(root, rest, "Pictures") }}{% endif %}
+  {% endfor %}
+  {% if not secs and rest %}{{ gallery(root, rest, "Pictures") }}{% endif %}
+  {% endif %}
+  {% if related %}<section class="related"><h2>See also</h2>{{ related }}</section>{% endif %}
+
+  {% if tip %}
+  {# Shown only when a senior's tip exists (D36). Label is never the old tagline (D43). #}
+  <aside class="tip"><h2 class="hand">Tip from a senior</h2>{{ tip }}</aside>
+  {% endif %}
+
+  <footer class="pg-foot">
+    <p><span class="mono">Last updated</span> {{ nice_date(n.updated) }}{% if n.get("status") in ("needs-check", "unknown") %} <span class="badge">not yet checked with the office</span>{% endif %}</p>
+    {% if source %}<p><span class="mono">Source</span> {{ source }}</p>{% endif %}
+    <p>If something here is wrong or out of date, tell the PAHIBALO team{% if settings.report_link.startswith("http") %} using the <a href="{{ settings.report_link }}">error report form</a>{% endif %}.</p>
+  </footer>
+</article>
+{% endblock %}
