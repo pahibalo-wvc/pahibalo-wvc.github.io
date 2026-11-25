@@ -24,3 +24,10 @@ Each area needs a minimum number of photos per page (orgs 2, events and competit
 - `events/yearbook-creative-shots.html` (2026-11-24): Facebook post search returned unrelated posts.
 - `competitions/philippine-biology-olympiad.html` (2026-11-24): Facebook post search returned exam qualifier lists and another org's event.
 - `competitions/biology.html`, `competitions/chemistry.html`, `competitions/physics.html`, `competitions/mathematics.html`, `competitions/philippine-mathematical-olympiad.html` (2026-11-25): Sci-Link author-filtered searches ("olympiad", "quiz bee") returned only winners' pubmats and close-up portraits; Cinematograpisay has no contest albums. Nothing shows what the contests look like.
+- Deferred by the PAHIBALO team on 2026-11-25 so the site can go up first; photos to be added later, not a finished search. Remove each line once its page has enough photos:
+  - `events/grad-ball.html`: not searched yet.
+  - `events/income-generating-projects.html`: not searched yet; Astra WVC merch cart posts are a lead.
+  - `competitions/publiscience.html`: not searched yet.
+  - `offices/cash-management-unit.html`: not in the 2021 tour frames as far as can be told; no Facebook post found yet.
+  - `offices/cooperative.html`: no Coop Facebook page for WVC; the Sci-Link "coop" search returned an unrelated post; the tour frames do not clearly show it.
+  - `orgs/pahibalo.html`: the Pahibalo WVC page has 6 photos (two story pubmats with faces, banners and the logo); nothing new that shows the org at work.
